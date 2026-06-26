@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>M.E.M. Theory — Governance-First AI</title>
-  <meta name="description" content="Danmark og Europa bør ikke kun bygge den største AI-model. Vi bør bygge de bedste strukturer omkring modellerne." />
+  <meta name="description" content="Europe doesn't just need access to AI. It needs its own structures around AI. Accountable. Explainable. Sovereign. Built to last." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
@@ -26,18 +26,16 @@
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1.5rem,5vw,5rem); height: 58px; background: rgba(11,16,24,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
     .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.05em; color: var(--white); text-decoration: none; }
     .logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
     .nav-links a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
-    .nav-cta { font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--bg); background: var(--accent); padding: 0.42rem 1rem; border-radius: 2px; text-decoration: none; }
     .nav-lang { font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); padding: 0.3rem 0.7rem; border-radius: 2px; text-decoration: none; transition: color 0.2s, border-color 0.2s; }
     .nav-lang:hover { color: var(--accent); border-color: var(--accent); }
+    .nav-cta { font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--bg); background: var(--accent); padding: 0.42rem 1rem; border-radius: 2px; text-decoration: none; }
 
-    /* SHARED */
     .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1.5rem,5vw,5rem); }
     .eye { font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 1.2rem; }
     .h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.5rem,2.8vw,2.2rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 0.75rem; }
@@ -92,7 +90,7 @@
     .pcard-tagline { font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 500; color: var(--accent); font-style: italic; }
     .pcard p { font-size: 0.83rem; color: var(--muted); line-height: 1.65; flex-grow: 1; }
     .pcard-inv { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.35rem; }
-    .inv { font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; padding: 0.15rem 0.5rem; border-radius: 2px; background: var(--faint); color: var(--muted); font-family: monospace; }
+    .inv { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; padding: 0.15rem 0.5rem; border-radius: 2px; background: var(--faint); color: var(--muted); font-family: monospace; }
     .pcard-link { font-family: 'Space Grotesk', sans-serif; font-size: 0.77rem; font-weight: 500; color: var(--accent); text-decoration: none; }
     .pcard-link::after { content: ' →'; }
 
@@ -109,13 +107,12 @@
     .efill.big { background: var(--red); }
     .eval { font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--muted); text-align: right; }
     .energy-note { margin-top: 2rem; font-size: 0.82rem; color: var(--muted); line-height: 1.75; border-left: 2px solid var(--accent); padding-left: 1rem; }
-    .energy-text .h2 { margin-bottom: 1rem; }
     .energy-text p { color: var(--muted); font-size: 0.88rem; line-height: 1.8; margin-bottom: 0.75rem; }
 
     /* CORPUS */
     .corpus { padding: 5.5rem 0; border-bottom: 1px solid var(--line); }
     .corpus-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .corpus-docs { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 0; }
+    .corpus-docs { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); }
     .cdoc { background: var(--bg); padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; transition: background 0.15s; }
     .cdoc:hover { background: var(--bg3); }
     .cdoc-name { font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--white); display: block; margin-bottom: 0.2rem; }
@@ -147,12 +144,11 @@
     .form-note { font-size: 0.75rem; color: var(--muted); }
     #form-ok { display: none; padding: 0.9rem 1rem; background: rgba(45,212,191,0.08); border: 1px solid rgba(45,212,191,0.25); border-radius: 2px; color: var(--accent); font-size: 0.86rem; }
 
-    /* FOOTER */
     footer { padding: 2.75rem 0; border-top: 1px solid var(--line); }
     .foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     .foot-logo { font-family: 'Space Grotesk', sans-serif; font-size: 0.86rem; font-weight: 600; color: var(--muted); }
     .foot-logo span { color: var(--accent); }
-    .foot-links { display: flex; gap: 1.5rem; }
+    .foot-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
     .foot-links a { font-size: 0.76rem; color: var(--muted); text-decoration: none; }
     .foot-links a:hover { color: var(--text); }
     .foot-copy { font-size: 0.7rem; color: var(--faint); width: 100%; margin-top: 0.2rem; }
@@ -171,37 +167,37 @@
 <body>
 
 <nav>
-  <a href="#" class="logo">M<span>.</span>E<span>.</span>M<span>.</span></a>
+  <a href="/en" class="logo">M<span>.</span>E<span>.</span>M<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#argument">Argument</a></li>
-    <li><a href="#produkter">Produkter</a></li>
-    <li><a href="#korpus">Korpus</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#corpus">Corpus</a></li>
     <li><a href="#pilot">Pilot</a></li>
-    <li><a href="/en" class="nav-lang">🇬🇧 EN</a></li>
+    <li><a href="/" class="nav-lang">🇩🇰 DA</a></li>
   </ul>
-  <a href="#pilot" class="nav-cta">Bliv pilotpartner</a>
+  <a href="#pilot" class="nav-cta">Become a pilot partner</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="wrap">
-    <p class="hero-lbl">M.E.M. Theory · Governance-First Architecture · Nakskov, Danmark</p>
-    <h1>Ikke mere AI for AI'ens skyld.<br>Men systemer, mennesker<br>faktisk kan <em>eksistere i</em>.</h1>
+    <p class="hero-lbl">M.E.M. Theory · Governance-First Architecture · Nakskov, Denmark</p>
+    <h1>Not more AI for AI's sake.<br>But systems people can<br>actually <em>exist within</em>.</h1>
     <p class="hero-deck">
-      Danmark og Europa bør ikke kun konkurrere på at bygge den største AI-model.<br>
-      <strong>Vi bør bygge de bedste strukturer omkring modellerne.</strong><br>
-      Sporbare. Forklarlige. Ansvarlige. Uafhængige. Bygget til at holde.
+      Europe doesn't just need access to AI models.<br>
+      <strong>Europe needs its own structures around AI.</strong><br>
+      Traceable. Explainable. Accountable. Sovereign. Built to last.
     </p>
     <div class="hero-four">
       <div class="hf"><span class="hf-lbl">EU AI Act</span><span class="hf-val">Compliant by design</span></div>
-      <div class="hf"><span class="hf-lbl">Energiforbrug</span><span class="hf-val">Watt — ikke megawatt</span></div>
-      <div class="hf"><span class="hf-lbl">Arkitektur</span><span class="hf-val">Kausal · Epistemisk · Lukket loop</span></div>
-      <div class="hf"><span class="hf-lbl">Børnesikkerhed</span><span class="hf-val">Governance før engagement</span></div>
+      <div class="hf"><span class="hf-lbl">Energy use</span><span class="hf-val">Watts — not megawatts</span></div>
+      <div class="hf"><span class="hf-lbl">Architecture</span><span class="hf-val">Causal · Epistemic · Closed loop</span></div>
+      <div class="hf"><span class="hf-lbl">Child safety</span><span class="hf-val">Governance before engagement</span></div>
     </div>
     <div class="hero-actions">
-      <a href="#pilot" class="btn btn-p">Bliv pilotpartner</a>
-      <a href="#produkter" class="btn btn-g">Se produkterne</a>
+      <a href="#pilot" class="btn btn-p">Become a pilot partner</a>
+      <a href="#products" class="btn btn-g">See the products</a>
     </div>
   </div>
 </section>
@@ -211,40 +207,40 @@
   <div class="wrap">
     <div class="arg-inner">
       <div class="arg-left">
-        <span class="eye">Det centrale argument</span>
-        <p class="big">"Hvad sker der, hvis AI ikke kun optimeres for output, men bygges omkring relationer, ansvar, feedback, kontinuitet, sporbarhed og mulighed for menneskelig indgriben?"</p>
-        <p>De fleste AI-systemer bygger capability først og governance bagefter. M.E.M.-produkter bygger governance som fundament og capability ovenpå. Det er ikke en begrænsning — det er designprincippet.</p>
-        <p>Resultatet er systemer der kan forklare enhver beslutning de træffer, køre på hardware der allerede eksisterer, og overholde EU AI Act — ikke fordi compliance er tilføjet, men fordi arkitekturen er kausal fra start.</p>
-        <p>Og fordi systemerne ikke kræver GPU-farme, koster de ikke planeten noget særligt at bruge.</p>
+        <span class="eye">The central argument</span>
+        <p class="big">"What happens when AI is not only optimised for output, but built around relations, accountability, feedback, continuity, traceability, and the possibility of human intervention?"</p>
+        <p>Most AI systems build capability first and add governance later. M.E.M. products build governance as the foundation and capability on top. That is not a limitation — it is the design principle.</p>
+        <p>The result is systems that can explain every decision they make, run on hardware that already exists, and comply with the EU AI Act — not because compliance was added, but because the architecture is causal from the start.</p>
+        <p>And because the systems require no GPU farms, they cost the planet very little to operate.</p>
       </div>
       <div class="arg-right">
-        <span class="eye">Fire grunde til at det haster</span>
+        <span class="eye">Four reasons this matters now</span>
         <div class="arg-item">
           <span class="arg-num">01</span>
           <div class="arg-body">
-            <strong>EU AI Act kræver forklarbarhed</strong>
-            <span>Systemer der træffer beslutninger der påvirker mennesker skal kunne forklare sig. M.E.M.-produkter gør dette ikke som et compliance-lag — det er en naturlig konsekvens af den kausale arkitektur.</span>
+            <strong>The EU AI Act demands explainability</strong>
+            <span>Systems that make decisions affecting people must be able to explain themselves. M.E.M. products do this not as a compliance layer — it is a natural consequence of the causal architecture.</span>
           </div>
         </div>
         <div class="arg-item">
           <span class="arg-num">02</span>
           <div class="arg-body">
-            <strong>Digital suverænitet kræver egne strukturer</strong>
-            <span>Adgang til store AI-modeller kan lukkes med kort varsel. Europa har brug for governance-lag der er model-uafhængige — strukturer der holder, også når leverandører eller geopolitik ændrer sig.</span>
+            <strong>Digital sovereignty requires your own structures</strong>
+            <span>Access to large AI models can be cut off with little notice. Europe needs governance layers that are model-independent — structures that hold even when vendors or geopolitics shift.</span>
           </div>
         </div>
         <div class="arg-item">
           <span class="arg-num">03</span>
           <div class="arg-body">
-            <strong>Klimakrav til datacentre stiger</strong>
-            <span>At vælge systemer der kører deterministisk på eksisterende hardware er ikke bare billigere — det er en klimabeslutning. Watt, ikke megawatt.</span>
+            <strong>Climate pressure on data centres is rising</strong>
+            <span>Choosing systems that run deterministically on existing hardware is not just cheaper — it is a climate decision. Watts, not megawatts.</span>
           </div>
         </div>
         <div class="arg-item">
           <span class="arg-num">04</span>
           <div class="arg-body">
-            <strong>Børn bruger allerede AI — uden governance</strong>
-            <span>Problemet er ikke længere om børn kommer til at bruge AI. Det er hvilken type AI de møder. Eksisterende systemer kan skabe afhængighed, forstærke isolation og normalisere selvskade.</span>
+            <strong>Children are already using AI — without governance</strong>
+            <span>The question is no longer whether children will use AI. It is what kind of AI they encounter. Existing systems can create dependency, amplify isolation, and normalise self-harm.</span>
           </div>
         </div>
       </div>
@@ -253,125 +249,107 @@
 </section>
 
 <!-- PRODUCTS -->
-<section class="products" id="produkter">
+<section class="products" id="products">
   <div class="wrap">
-    <span class="eye">Produktoversigt</span>
-    <h2 class="h2">Seks systemer. Ét fundament.</h2>
-    <p class="sub">Hvert produkt dækker sit domæne. Alle bygget på samme kausale, epistemiske arkitektur.</p>
+    <span class="eye">Products</span>
+    <h2 class="h2">Six systems. One foundation.</h2>
+    <p class="sub">Each product covers its own domain. All built on the same causal, epistemic architecture.</p>
     <div class="prod-grid">
 
-      <!-- SafeSpace -->
       <div class="pcard">
         <div class="pcard-flag flag-children"></div>
-        <div style="margin-top:0.5rem;">
-          <span class="pcard-status s-pilot">⬡ Pilotfase</span>
-        </div>
-        <span class="pcard-domain">Børn · AI-miljøer · Trivsel</span>
+        <div style="margin-top:0.5rem;"><span class="pcard-status s-pilot">⬡ Pilot phase</span></div>
+        <span class="pcard-domain">Children · AI environments · Wellbeing</span>
         <h3>M.E.M.I. SafeSpace</h3>
-        <p class="pcard-tagline">"Governance før engagement."</p>
-        <p>Et relationelt sikkerheds- og støttesystem til børn og unge i AI-miljøer — skoler, fritid, hjem. Systemet scorer ikke børn. Det profilerer ikke børn. Det ser mønstre i det relationelle miljø og hjælper børn og voksne med at nå hinanden <em>tidligere</em>.</p>
-        <p>Læreren ser ikke hvad der er skrevet. Læreren ser at noget er i gang — i tide til at handle. AI'en guider altid mod et menneske hvis noget er galt.</p>
+        <p class="pcard-tagline">"Governance before engagement."</p>
+        <p>A relational safety and support system for children and young people in AI environments — schools, leisure, home. The system does not score children. It does not profile children. It observes patterns in the relational environment and helps children and adults reach each other <em>earlier</em>.</p>
+        <p>The teacher does not see what was written. The teacher sees that something is developing — in time to act. The AI always guides toward a human being when something is wrong.</p>
         <div class="pcard-inv">
           <span class="inv">transfer_allowed = False</span>
           <span class="inv">execution_allowed = False</span>
           <span class="inv">scoring_prohibited = True</span>
         </div>
-        <a href="#pilot" class="pcard-link">Forespørg om pilotadgang</a>
+        <a href="#pilot" class="pcard-link">Request pilot access</a>
       </div>
 
-      <!-- ETOS -->
       <div class="pcard">
         <div class="pcard-flag flag-gov"></div>
-        <div style="margin-top:0.5rem;">
-          <span class="pcard-status s-ready">✓ Klar</span>
-        </div>
-        <span class="pcard-domain">Governance · EU AI Act · Offentlig sektor</span>
+        <div style="margin-top:0.5rem;"><span class="pcard-status s-ready">✓ Ready</span></div>
+        <span class="pcard-domain">Governance · EU AI Act · Public sector</span>
         <h3>ETOS</h3>
-        <p class="pcard-tagline">"ETOS træffer ikke beslutninger — det gør dem synlige."</p>
-        <p>Etisk Tilsyns- og Overvågningssystem. Governance-native beslutningsplatform med tre-lags arkitektur der identificerer normative spændinger. Dækker EU AI Act artikel 9, 12, 13, 14 og 17. 22/23 audit-checks bestået i uafhængig validering.</p>
-        <p>Til kommuner, institutioner og organisationer der skal kunne forklare hver afgørelse de træffer.</p>
+        <p class="pcard-tagline">"ETOS does not make decisions — it makes them visible."</p>
+        <p>Ethical Oversight and Monitoring System. Governance-native decision platform with three-layer architecture that identifies normative tensions. Covers EU AI Act articles 9, 12, 13, 14 and 17. 22/23 audit checks passed in independent validation.</p>
+        <p>For municipalities, institutions and organisations that must be able to explain every decision they make.</p>
         <div class="pcard-inv">
           <span class="inv">Art. 9 Risk Mgmt</span>
           <span class="inv">Art. 13 Transparency</span>
           <span class="inv">Art. 14 Human Oversight</span>
         </div>
-        <a href="#pilot" class="pcard-link">Forespørg om pilot</a>
+        <a href="#pilot" class="pcard-link">Request a pilot</a>
       </div>
 
-      <!-- LRE -->
       <div class="pcard">
         <div class="pcard-flag flag-citizen"></div>
-        <div style="margin-top:0.5rem;">
-          <span class="pcard-status s-ready">✓ Klar</span>
-        </div>
-        <span class="pcard-domain">Jura · Borgerrettigheder · Forvaltning</span>
+        <div style="margin-top:0.5rem;"><span class="pcard-status s-ready">✓ Ready</span></div>
+        <span class="pcard-domain">Law · Citizen rights · Public administration</span>
         <h3>LRE — Legal Recoverability Engine</h3>
-        <p class="pcard-tagline">"Borgeren som juridisk aktør — ikke kun juridisk objekt."</p>
-        <p>Kortlægger juridiske genopretningsstier langs kæden: Hændelse → Brud → Bevis → Genoprettelsesvej → Dokument. Fire domæner: forvaltningsret, familieret, lejeret, databeskyttelse. 11 genoprettelsesveje. Genererer faktiske breve og anmodninger.</p>
-        <p>Kører offline. Ingen internetforbindelse krævet under drift.</p>
+        <p class="pcard-tagline">"The citizen as legal actor — not merely a legal object."</p>
+        <p>Maps legal recoverability paths along the chain: Event → Breach → Evidence → Recovery path → Document. Four domains: administrative law, family law, tenancy law, data protection. 11 recovery paths. Generates actual letters and requests.</p>
+        <p>Runs offline. No internet connection required during operation.</p>
         <div class="pcard-inv">
-          <span class="inv">4 domæner</span>
-          <span class="inv">11 genoprettelsesveje</span>
+          <span class="inv">4 legal domains</span>
+          <span class="inv">11 recovery paths</span>
           <span class="inv">offline-first</span>
         </div>
-        <a href="#pilot" class="pcard-link">Forespørg om pilot</a>
+        <a href="#pilot" class="pcard-link">Request a pilot</a>
       </div>
 
-      <!-- MEMI.www -->
       <div class="pcard">
         <div class="pcard-flag flag-citizen"></div>
-        <div style="margin-top:0.5rem;">
-          <span class="pcard-status s-pilot">⬡ Pilotfase</span>
-        </div>
-        <span class="pcard-domain">Digital identitet · GDPR · Borgerrettigheder</span>
-        <h3>M.E.M.I.www — Borgerportal</h3>
-        <p class="pcard-tagline">"Digital selvforsvars- og selvindsigtsarkitektur."</p>
-        <p>Giver borgeren et personligt relationskort over egne digitale spor og omsætter fundene til dokumenterbare rettighedshandlinger. Sletning, rettelse, klage til Datatilsynet, beviskæde. Systemet søger ikke efter "sandheden om personen" — det søger efter relationelle spor.</p>
-        <p>Borgeren ejer data. Systemet holder det på borgerens vegne.</p>
+        <div style="margin-top:0.5rem;"><span class="pcard-status s-pilot">⬡ Pilot phase</span></div>
+        <span class="pcard-domain">Digital identity · GDPR · Citizen rights</span>
+        <h3>M.E.M.I.www — Citizen Portal</h3>
+        <p class="pcard-tagline">"Digital self-defence and self-insight architecture."</p>
+        <p>Gives citizens a personal relational map of their own digital traces and translates findings into documented rights actions. Deletion, correction, complaint to the Data Protection Authority, evidence chain. The system does not search for "the truth about the person" — it searches for relational traces.</p>
+        <p>The citizen owns the data. The system holds it on the citizen's behalf.</p>
         <div class="pcard-inv">
           <span class="inv">GDPR Art. 15-17</span>
           <span class="inv">append-only log</span>
-          <span class="inv">borgerstyret samtykke</span>
+          <span class="inv">citizen-controlled consent</span>
         </div>
-        <a href="#pilot" class="pcard-link">Forespørg om pilotadgang</a>
+        <a href="#pilot" class="pcard-link">Request pilot access</a>
       </div>
 
-      <!-- APEX/GAIA -->
       <div class="pcard">
         <div class="pcard-flag flag-security"></div>
-        <div style="margin-top:0.5rem;">
-          <span class="pcard-status s-ready">✓ Klar</span>
-        </div>
-        <span class="pcard-domain">Cybersikkerhed · Kritisk infrastruktur · Forsvar</span>
+        <div style="margin-top:0.5rem;"><span class="pcard-status s-ready">✓ Ready</span></div>
+        <span class="pcard-domain">Cybersecurity · Critical infrastructure · Defence</span>
         <h3>APEX / GAIA</h3>
-        <p class="pcard-tagline">"Er denne adfærd forenelig med miljøets forventede relationer?"</p>
-        <p>Governance-Native Adaptive Immune Architecture. Spørger ikke "Er dette en kendt trussel?" men "Er denne adfærd forenelig med miljøets forventede relationer?" Deler immunviden mellem noder uden at dele data. Vaccination-pakker, ikke rå alarmer.</p>
+        <p class="pcard-tagline">"Is this behaviour consistent with the expected relations of this environment?"</p>
+        <p>Governance-Native Adaptive Immune Architecture. Does not ask "Is this a known threat?" but "Is this behaviour consistent with the expected relations of this environment?" Shares immune knowledge between nodes without sharing data. Vaccination packages, not raw alerts.</p>
         <p>Hard invariants: HackBack = False. Destructive = False. HumanApproval = Required.</p>
         <div class="pcard-inv">
           <span class="inv">HackBack = False</span>
           <span class="inv">Destructive = False</span>
           <span class="inv">HumanApproval = Required</span>
         </div>
-        <a href="#pilot" class="pcard-link">Forespørg om pilot</a>
+        <a href="#pilot" class="pcard-link">Request a pilot</a>
       </div>
 
-      <!-- MEMI Core -->
       <div class="pcard">
         <div class="pcard-flag flag-core"></div>
-        <div style="margin-top:0.5rem;">
-          <span class="pcard-status s-arch">◈ Arkitektur</span>
-        </div>
-        <span class="pcard-domain">Runtime · Governance-kerne · AGI-sikkerhed</span>
+        <div style="margin-top:0.5rem;"><span class="pcard-status s-arch">◈ Architecture</span></div>
+        <span class="pcard-domain">Runtime · Governance core · AGI safety</span>
         <h3>M.E.M.I. Runtime Core</h3>
-        <p class="pcard-tagline">"Governance som fundament. Capability ovenpå."</p>
-        <p>Den underliggende runtime-arkitektur alle produkter bygger på. Persistent governance over 100.000+ iterationer, 14+ timers drift: ingen governance-drift, ingen runaway escalation, ingen identitetsdrift, ingen spontane mål.</p>
-        <p>Ikke en chatbot. En governance-native kognitiv arkitektur hvor restraint er arkitektonisk, ikke situationel.</p>
+        <p class="pcard-tagline">"Governance as foundation. Capability on top."</p>
+        <p>The underlying runtime architecture all products are built on. Persistent governance across 100,000+ iterations, 14+ hours of operation: no governance drift, no runaway escalation, no identity drift, no spontaneous goals.</p>
+        <p>Not a chatbot. A governance-native cognitive architecture where restraint is architectural, not situational.</p>
         <div class="pcard-inv">
-          <span class="inv">100k+ iterationer</span>
-          <span class="inv">0 governance-fejl</span>
+          <span class="inv">100k+ iterations</span>
+          <span class="inv">0 governance failures</span>
           <span class="inv">execution_allowed = False</span>
         </div>
-        <a href="#pilot" class="pcard-link">Forespørg om adgang</a>
+        <a href="#pilot" class="pcard-link">Request access</a>
       </div>
 
     </div>
@@ -382,29 +360,29 @@
 <section class="energy">
   <div class="wrap">
     <div class="energy-inner">
-      <div>
-        <span class="eye">Energiforbrug · Relativ sammenligning</span>
-        <h2 class="h2">Det er ikke en begrænsning.<br>Det er designprincippet.</h2>
-        <p>M.E.M.-produkter er kausal ræsonnering — eksplicitte lag, deterministisk logik, ingen vægte, ingen træning, ingen GPU-farm. De kører på en laptop. De bruger watt, ikke megawatt.</p>
-        <p>Det er den samme grund til at de er forklarlige og til at de er billige at drive. Arkitekturen er epistemisk og biologisk inspireret — lukket loop, minimal ressource, maksimal sporbarhed.</p>
-        <p class="energy-note">M.E.M.-produkter kører på det I allerede har. Det er ikke fordi ambitionerne er små — det er fordi arkitekturen er designet til minimal ressourcebrug fra start.</p>
+      <div class="energy-text">
+        <span class="eye">Energy consumption · Relative comparison</span>
+        <h2 class="h2">Not a limitation.<br>The design principle.</h2>
+        <p>M.E.M. products are causal reasoning — explicit layers, deterministic logic, no weights, no training, no GPU farm. They run on a laptop. They use watts, not megawatts.</p>
+        <p>That is the same reason they are explainable and inexpensive to operate. The architecture is epistemically and biologically inspired — closed loop, minimal resource use, maximum traceability.</p>
+        <p class="energy-note">M.E.M. products run on hardware you already have. Not because the ambitions are small — but because the architecture is designed for minimal resource use from the start.</p>
       </div>
       <div>
         <div class="ebars">
           <div class="erow">
-            <span class="elbl">M.E.M. (lokal laptop)</span>
+            <span class="elbl">M.E.M. (local laptop)</span>
             <div class="etrack"><div class="efill mem" data-w="2"></div></div>
             <span class="eval">~10 W</span>
           </div>
           <div class="erow">
-            <span class="elbl">LLM én forespørgsel</span>
+            <span class="elbl">LLM one request</span>
             <div class="etrack"><div class="efill mid" data-w="35"></div></div>
-            <span class="eval">~0,001 kWh</span>
+            <span class="eval">~0.001 kWh</span>
           </div>
           <div class="erow">
-            <span class="elbl">LLM daglig drift</span>
+            <span class="elbl">LLM daily operation</span>
             <div class="etrack"><div class="efill big" data-w="90"></div></div>
-            <span class="eval">megawatt-skala</span>
+            <span class="eval">megawatt scale</span>
           </div>
         </div>
       </div>
@@ -413,17 +391,17 @@
 </section>
 
 <!-- CORPUS -->
-<section class="corpus" id="korpus">
+<section class="corpus" id="corpus">
   <div class="wrap">
     <div class="corpus-inner">
       <div class="corpus-text">
-        <span class="eye">Det konstitutionelle korpus</span>
-        <h2 class="h2">Konstitutionen<br>kommer før koden.</h2>
-        <p>De fleste AI-systemer definerer grænser efterfølgende — som compliance-lag tilføjet ovenpå eksisterende kapabilitet. M.E.M.-korpuset definerer grænser <em>før</em> systemerne bygges.</p>
-        <p>Det er ikke etiske principper. Det er konstitutionel lovgivning for systemerne — med artikel, paragraf og revisionsprotokol. En funktion der konflikter med en artikel afvises. Konstitutionen står.</p>
-        <p>Offentligt arkiveret og peer-reviewbart. Enhver kan verificere at systemerne gør hvad de siger.</p>
+        <span class="eye">The constitutional corpus</span>
+        <h2 class="h2">The constitution<br>comes before the code.</h2>
+        <p>Most AI systems define limits retrospectively — as compliance layers added on top of existing capability. The M.E.M. corpus defines limits <em>before</em> systems are built.</p>
+        <p>These are not ethical principles. They are constitutional law for the systems — with articles, clauses, and revision protocols. A feature that conflicts with an article is rejected. The constitution stands.</p>
+        <p>Publicly archived and peer-reviewable. Anyone can verify that the systems do what they claim.</p>
         <div class="doi-box">
-          <span class="doi-lbl">Zenodo DOI — Offentligt arkiveret</span>
+          <span class="doi-lbl">Zenodo DOI — Publicly archived</span>
           <span class="doi-val">10.5281/zenodo.20728588</span>
         </div>
         <div class="doi-box" style="margin-top:0.75rem;">
@@ -432,49 +410,49 @@
         </div>
       </div>
       <div>
-        <span class="eye" style="margin-bottom:1rem;">Korpusets dokumenter</span>
+        <span class="eye" style="margin-bottom:1rem;">Corpus documents</span>
         <div class="corpus-docs">
           <div class="cdoc">
             <div>
               <span class="cdoc-name">CDP — Constitutional Decision Protocol</span>
-              <span class="cdoc-desc">Fælles stamfader for alle dokumenter. Legitimitet kommer fra proces, ikke person.</span>
+              <span class="cdoc-desc">Common ancestor of all documents. Legitimacy derives from process, not person.</span>
             </div>
-            <span class="cdoc-type type-const">Forfatning</span>
+            <span class="cdoc-type type-const">Constitution</span>
           </div>
           <div class="cdoc">
             <div>
               <span class="cdoc-name">Core Axioms v1.0</span>
-              <span class="cdoc-desc">7 aksiomer. Domæne-uafhængige. Relation · Spænding · Recoverability.</span>
+              <span class="cdoc-desc">7 axioms. Domain-independent. Relation · Tension · Recoverability.</span>
             </div>
-            <span class="cdoc-type type-axiom">Teori</span>
+            <span class="cdoc-type type-axiom">Theory</span>
           </div>
           <div class="cdoc">
             <div>
               <span class="cdoc-name">M.E.M.I.www Constitutional Architecture v1.0</span>
-              <span class="cdoc-desc">Borgeren ejer sine digitale spor. Systemet ejer dem ikke.</span>
+              <span class="cdoc-desc">The citizen owns their digital traces. The system does not.</span>
             </div>
-            <span class="cdoc-type type-const">Forfatning</span>
+            <span class="cdoc-type type-const">Constitution</span>
           </div>
           <div class="cdoc">
             <div>
               <span class="cdoc-name">M.E.M.I. SafeSpace Constitutional Architecture v1.0</span>
-              <span class="cdoc-desc">Barnet er ikke et dataobjekt. Barnet er ikke et risikosignal.</span>
+              <span class="cdoc-desc">The child is not a data object. The child is not a risk signal.</span>
             </div>
-            <span class="cdoc-type type-const">Forfatning</span>
+            <span class="cdoc-type type-const">Constitution</span>
           </div>
           <div class="cdoc">
             <div>
               <span class="cdoc-name">Governance & Constitutional Controller v1.0</span>
-              <span class="cdoc-desc">Tre adskilte roller. Ingen enkelt part kan ændre konstitutionen alene.</span>
+              <span class="cdoc-desc">Three separate roles. No single party can change the constitution alone.</span>
             </div>
             <span class="cdoc-type type-gov">Governance</span>
           </div>
           <div class="cdoc">
             <div>
               <span class="cdoc-name">Corpus Overview — Document Relations v1.0</span>
-              <span class="cdoc-desc">Kortet over korpuset. Læs dette først.</span>
+              <span class="cdoc-desc">The map of the corpus. Read this first.</span>
             </div>
-            <span class="cdoc-type type-struct">Struktur</span>
+            <span class="cdoc-type type-struct">Structure</span>
           </div>
         </div>
       </div>
@@ -487,47 +465,47 @@
   <div class="wrap">
     <div class="pilot-inner">
       <div>
-        <span class="eye">Pilotprogram</span>
-        <h2 class="h2">Vær med fra begyndelsen.</h2>
-        <p style="color:var(--muted);line-height:1.8;font-size:0.9rem;margin-bottom:0.75rem;">Et pilotsamarbejde er ikke et eksperiment — det er en kontrolleret implementering med fuld dokumentation, og din organisation som medforfatter til processen.</p>
-        <p style="color:var(--muted);line-height:1.8;font-size:0.9rem;">Antallet af pladser er begrænset. Ikke som salgsretorik — men fordi pilotsamarbejder kræver reel opmærksomhed fra begge sider.</p>
+        <span class="eye">Pilot programme</span>
+        <h2 class="h2">Be part of it<br>from the beginning.</h2>
+        <p style="color:var(--muted);line-height:1.8;font-size:0.9rem;margin-bottom:0.75rem;">A pilot partnership is not an experiment — it is a controlled implementation with full documentation, and your organisation as co-author of the process.</p>
+        <p style="color:var(--muted);line-height:1.8;font-size:0.9rem;">The number of places is limited. Not as a sales tactic — but because pilot partnerships require genuine attention from both sides.</p>
         <ul class="perks">
-          <li>Direkte adgang til arkitekten bag systemet</li>
-          <li>Fuldt dokumenteret implementering med audit-trail</li>
-          <li>EU AI Act compliance-dokumentation inkluderet</li>
-          <li>Prioritet ved den kommercielle lancering</li>
-          <li>Bidrag til produktets videre udvikling</li>
-          <li>Systemet kører på det hardware I allerede har</li>
+          <li>Direct access to the architect behind the system</li>
+          <li>Fully documented implementation with audit trail</li>
+          <li>EU AI Act compliance documentation included</li>
+          <li>Priority at commercial launch</li>
+          <li>Contribution to the product's further development</li>
+          <li>The system runs on hardware you already have</li>
         </ul>
       </div>
       <div>
         <form class="form" id="pilotForm">
           <div class="form-row">
-            <div class="field"><label>Navn</label><input type="text" placeholder="Dit navn" /></div>
-            <div class="field"><label>Organisation</label><input type="text" placeholder="Kommune / virksomhed / institution" /></div>
+            <div class="field"><label>Name</label><input type="text" placeholder="Your name" /></div>
+            <div class="field"><label>Organisation</label><input type="text" placeholder="Municipality / company / institution" /></div>
           </div>
-          <div class="field"><label>E-mail</label><input type="email" placeholder="din@email.dk" /></div>
+          <div class="field"><label>Email</label><input type="email" placeholder="you@email.com" /></div>
           <div class="field">
-            <label>Primær interesse</label>
+            <label>Primary interest</label>
             <select>
-              <option value="" disabled selected>Vælg produkt eller område</option>
-              <option>M.E.M.I. SafeSpace — børn og AI-miljøer</option>
-              <option>ETOS — governance og EU AI Act</option>
-              <option>LRE — juridisk genopretning for borgere</option>
-              <option>M.E.M.I.www — digital selvforsvar og borgerrettigheder</option>
-              <option>APEX/GAIA — cybersikkerhed og kritisk infrastruktur</option>
-              <option>M.E.M.I. Runtime Core — arkitekturadgang</option>
-              <option>Digital suverænitet / governance-infrastruktur generelt</option>
-              <option>Ved ikke endnu — vil gerne høre mere</option>
+              <option value="" disabled selected>Select product or area</option>
+              <option>M.E.M.I. SafeSpace — children and AI environments</option>
+              <option>ETOS — governance and EU AI Act</option>
+              <option>LRE — legal recoverability for citizens</option>
+              <option>M.E.M.I.www — digital self-defence and citizen rights</option>
+              <option>APEX/GAIA — cybersecurity and critical infrastructure</option>
+              <option>M.E.M.I. Runtime Core — architecture access</option>
+              <option>Digital sovereignty / governance infrastructure generally</option>
+              <option>Not sure yet — would like to know more</option>
             </select>
           </div>
           <div class="field">
-            <label>Kontekst <span style="font-weight:300;text-transform:none;letter-spacing:0">(valgfrit)</span></label>
-            <textarea placeholder="Hvad er udfordringen? Hvad har I forsøgt hidtil?"></textarea>
+            <label>Context <span style="font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label>
+            <textarea placeholder="What is the challenge? What have you tried so far?"></textarea>
           </div>
-          <p class="form-note">Ingen automatiserede svar. Ingen nyhedsbrev. Du hører direkte fra mig — Maria.</p>
-          <button type="submit" class="btn btn-p">Send forespørgsel</button>
-          <div id="form-ok">Tak. Du hører fra mig inden for et par dage. — Maria Edlenborg Mortensen</div>
+          <p class="form-note">No automated replies. No newsletter. You will hear directly from me — Maria.</p>
+          <button type="submit" class="btn btn-p">Send enquiry</button>
+          <div id="form-ok">Thank you. You will hear from me within a few days. — Maria Edlenborg Mortensen</div>
         </form>
       </div>
     </div>
@@ -539,30 +517,29 @@
     <div class="foot-inner">
       <span class="foot-logo">M<span>.</span>E<span>.</span>M<span>.</span> — Maria Edlenborg Mortensen</span>
       <div class="foot-links">
-        <a href="https://zenodo.org/records/20728588" target="_blank" rel="noopener">Zenodo Korpus</a>
+        <a href="https://zenodo.org/records/20728588" target="_blank" rel="noopener">Zenodo Corpus</a>
         <a href="https://zenodo.org/records/18910676" target="_blank" rel="noopener">CDP DOI</a>
-        <a href="https://mem-teori.github.io/etos-site/" target="_blank" rel="noopener">ETOS-site</a>
+        <a href="https://mem-teori.github.io/etos-site/" target="_blank" rel="noopener">ETOS site</a>
         <a href="http://ai-constitution.now" target="_blank" rel="noopener">AI Constitution</a>
-        <a href="mailto:m.e.m.teori@gmail.com">Kontakt</a>
+        <a href="/" >🇩🇰 Dansk</a>
+        <a href="mailto:m.e.m.teori@gmail.com">Contact</a>
       </div>
-      <p class="foot-copy">© 2026 Maria Edlenborg Mortensen · M.E.M. Theory · Nakskov, Danmark · DOI 10.5281/zenodo.20728588</p>
+      <p class="foot-copy">© 2026 Maria Edlenborg Mortensen · M.E.M. Theory · Nakskov, Denmark · DOI 10.5281/zenodo.20728588</p>
     </div>
   </div>
 </footer>
 
 <script>
-  // Energy bars
   const fills = document.querySelectorAll('.efill[data-w]');
   const io = new IntersectionObserver(e => {
     e.forEach(x => { if (x.isIntersecting) { x.target.style.width = x.target.dataset.w + '%'; io.unobserve(x.target); } });
   }, { threshold: 0.4 });
   fills.forEach(f => io.observe(f));
 
-  // Form
   document.getElementById('pilotForm').addEventListener('submit', e => {
     e.preventDefault();
     const btn = e.target.querySelector('button');
-    btn.textContent = 'Sender…'; btn.disabled = true;
+    btn.textContent = 'Sending…'; btn.disabled = true;
     setTimeout(() => {
       document.getElementById('form-ok').style.display = 'block';
       btn.style.display = 'none';
