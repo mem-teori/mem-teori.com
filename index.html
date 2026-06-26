@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M.E.M. Theory — Governance-First AI</title>
+  <meta name="description" content="Danmark og Europa bør ikke kun bygge den største AI-model. Vi bør bygge de bedste strukturer omkring modellerne." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:     #0B1018;
+      --bg2:    #111820;
+      --bg3:    #182028;
+      --line:   rgba(255,255,255,0.07);
+      --text:   #D4D8E0;
+      --muted:  #6E7D8C;
+      --faint:  #2A3540;
+      --accent: #2DD4BF;
+      --blue:   #38BDF8;
+      --warn:   #F59E0B;
+      --red:    #EF4444;
+      --white:  #EEF2F7;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1.5rem,5vw,5rem); height: 58px; background: rgba(11,16,24,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
+    .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.05em; color: var(--white); text-decoration: none; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta { font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--bg); background: var(--accent); padding: 0.42rem 1rem; border-radius: 2px; text-decoration: none; }
+
+    /* SHARED */
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1.5rem,5vw,5rem); }
+    .eye { font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 1.2rem; }
+    .h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.5rem,2.8vw,2.2rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 0.75rem; }
+    .sub { color: var(--muted); max-width: 540px; line-height: 1.75; }
+    .btn { font-family: 'Space Grotesk', sans-serif; font-size: 0.87rem; font-weight: 600; letter-spacing: 0.05em; padding: 0.78rem 1.9rem; border-radius: 2px; text-decoration: none; display: inline-block; cursor: pointer; border: none; }
+    .btn-p { background: var(--accent); color: var(--bg); }
+    .btn-g { background: transparent; border: 1px solid var(--line); color: var(--text); }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 9rem clamp(1.5rem,5vw,5rem) 5rem; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+    .hero-glow { position: absolute; top: 0; right: 0; width: 60%; height: 100%; background: radial-gradient(ellipse at 80% 40%, rgba(45,212,191,0.04) 0%, transparent 65%); pointer-events: none; }
+    .hero-lbl { font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.4rem,5.5vw,4.4rem); font-weight: 700; line-height: 1.09; color: var(--white); max-width: 860px; margin-bottom: 1.75rem; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero-deck { font-size: clamp(1rem,1.6vw,1.15rem); color: var(--muted); max-width: 600px; line-height: 1.8; margin-bottom: 2.5rem; }
+    .hero-deck strong { color: var(--text); font-weight: 500; }
+    .hero-four { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; border: 1px solid var(--line); max-width: 760px; margin-bottom: 2.75rem; }
+    .hf { padding: 0.85rem 1.1rem; border-right: 1px solid var(--line); }
+    .hf:last-child { border-right: none; }
+    .hf-lbl { font-family: 'Space Grotesk', sans-serif; font-size: 0.63rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.3rem; }
+    .hf-val { font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--accent); }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* ARGUMENT */
+    .argument { padding: 5.5rem 0; border-bottom: 1px solid var(--line); background: var(--bg2); }
+    .arg-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .arg-left .big { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.2rem,2.2vw,1.6rem); font-weight: 500; color: var(--white); line-height: 1.5; margin-bottom: 1.5rem; border-left: 3px solid var(--accent); padding-left: 1.75rem; }
+    .arg-left p { color: var(--muted); line-height: 1.8; font-size: 0.92rem; margin-bottom: 1rem; }
+    .arg-right { display: flex; flex-direction: column; gap: 1.5rem; }
+    .arg-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .arg-num { font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; color: var(--accent); background: rgba(45,212,191,0.08); padding: 0.2rem 0.55rem; border-radius: 2px; flex-shrink: 0; margin-top: 3px; }
+    .arg-body strong { font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem; font-weight: 600; color: var(--white); display: block; margin-bottom: 0.25rem; }
+    .arg-body span { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+    /* PRODUCTS */
+    .products { padding: 5.5rem 0; border-bottom: 1px solid var(--line); }
+    .prod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 3rem; }
+    .pcard { background: var(--bg); padding: 2rem; display: flex; flex-direction: column; gap: 0.8rem; transition: background 0.15s; position: relative; }
+    .pcard:hover { background: var(--bg3); }
+    .pcard-flag { position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+    .flag-children { background: linear-gradient(90deg, #2DD4BF, #38BDF8); }
+    .flag-gov     { background: linear-gradient(90deg, #F59E0B, #F97316); }
+    .flag-citizen { background: linear-gradient(90deg, #38BDF8, #818CF8); }
+    .flag-security{ background: linear-gradient(90deg, #EF4444, #F97316); }
+    .flag-core    { background: linear-gradient(90deg, #8B5CF6, #2DD4BF); }
+    .pcard-status { font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.18rem 0.55rem; border-radius: 2px; width: fit-content; }
+    .s-ready { background: rgba(45,212,191,0.1); color: var(--accent); }
+    .s-pilot { background: rgba(56,189,248,0.1); color: var(--blue); }
+    .s-arch  { background: rgba(139,92,246,0.1); color: #A78BFA; }
+    .pcard-domain { font-family: 'Space Grotesk', sans-serif; font-size: 0.63rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .pcard h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--white); line-height: 1.3; }
+    .pcard-tagline { font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 500; color: var(--accent); font-style: italic; }
+    .pcard p { font-size: 0.83rem; color: var(--muted); line-height: 1.65; flex-grow: 1; }
+    .pcard-inv { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .inv { font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; padding: 0.15rem 0.5rem; border-radius: 2px; background: var(--faint); color: var(--muted); font-family: monospace; }
+    .pcard-link { font-family: 'Space Grotesk', sans-serif; font-size: 0.77rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+    .pcard-link::after { content: ' →'; }
+
+    /* ENERGY */
+    .energy { padding: 5.5rem 0; border-bottom: 1px solid var(--line); background: var(--bg2); }
+    .energy-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .ebars { display: flex; flex-direction: column; gap: 1.75rem; }
+    .erow { display: grid; grid-template-columns: 150px 1fr 85px; gap: 1rem; align-items: center; }
+    .elbl { font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; font-weight: 500; color: var(--text); }
+    .etrack { height: 8px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+    .efill { height: 100%; border-radius: 2px; width: 0; transition: width 1.8s cubic-bezier(0.22,1,0.36,1); }
+    .efill.mem { background: var(--accent); }
+    .efill.mid { background: var(--warn); }
+    .efill.big { background: var(--red); }
+    .eval { font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--muted); text-align: right; }
+    .energy-note { margin-top: 2rem; font-size: 0.82rem; color: var(--muted); line-height: 1.75; border-left: 2px solid var(--accent); padding-left: 1rem; }
+    .energy-text .h2 { margin-bottom: 1rem; }
+    .energy-text p { color: var(--muted); font-size: 0.88rem; line-height: 1.8; margin-bottom: 0.75rem; }
+
+    /* CORPUS */
+    .corpus { padding: 5.5rem 0; border-bottom: 1px solid var(--line); }
+    .corpus-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .corpus-docs { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 0; }
+    .cdoc { background: var(--bg); padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; transition: background 0.15s; }
+    .cdoc:hover { background: var(--bg3); }
+    .cdoc-name { font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--white); display: block; margin-bottom: 0.2rem; }
+    .cdoc-desc { font-size: 0.78rem; color: var(--muted); }
+    .cdoc-type { font-family: 'Space Grotesk', sans-serif; font-size: 0.63rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 2px; flex-shrink: 0; margin-top: 3px; }
+    .type-const { background: rgba(45,212,191,0.1); color: var(--accent); }
+    .type-gov   { background: rgba(245,158,11,0.1); color: var(--warn); }
+    .type-axiom { background: rgba(139,92,246,0.1); color: #A78BFA; }
+    .type-struct{ background: rgba(56,189,248,0.1); color: var(--blue); }
+    .corpus-text p { color: var(--muted); font-size: 0.88rem; line-height: 1.8; margin-bottom: 1rem; }
+    .doi-box { margin-top: 1.5rem; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: 2px; }
+    .doi-lbl { font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.3rem; }
+    .doi-val { font-family: monospace; font-size: 0.82rem; color: var(--accent); }
+
+    /* PILOT */
+    .pilot { padding: 5.5rem 0; border-bottom: 1px solid var(--line); background: var(--bg2); }
+    .pilot-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .perks { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.65rem; }
+    .perks li { font-size: 0.86rem; color: var(--text); display: flex; gap: 0.65rem; line-height: 1.55; }
+    .perks li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
+    .form { display: flex; flex-direction: column; gap: 0.85rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+    .field { display: flex; flex-direction: column; gap: 0.32rem; }
+    .field label { font-family: 'Space Grotesk', sans-serif; font-size: 0.67rem; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; color: var(--muted); }
+    .field input, .field select, .field textarea { background: var(--bg); border: 1px solid var(--line); color: var(--text); padding: 0.62rem 0.88rem; font-family: 'Inter', sans-serif; font-size: 0.86rem; border-radius: 2px; outline: none; width: 100%; transition: border-color 0.2s; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); }
+    .field textarea { resize: vertical; min-height: 88px; }
+    .field select { appearance: none; cursor: pointer; }
+    .form-note { font-size: 0.75rem; color: var(--muted); }
+    #form-ok { display: none; padding: 0.9rem 1rem; background: rgba(45,212,191,0.08); border: 1px solid rgba(45,212,191,0.25); border-radius: 2px; color: var(--accent); font-size: 0.86rem; }
+
+    /* FOOTER */
+    footer { padding: 2.75rem 0; border-top: 1px solid var(--line); }
+    .foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .foot-logo { font-family: 'Space Grotesk', sans-serif; font-size: 0.86rem; font-weight: 600; color: var(--muted); }
+    .foot-logo span { color: var(--accent); }
+    .foot-links { display: flex; gap: 1.5rem; }
+    .foot-links a { font-size: 0.76rem; color: var(--muted); text-decoration: none; }
+    .foot-links a:hover { color: var(--text); }
+    .foot-copy { font-size: 0.7rem; color: var(--faint); width: 100%; margin-top: 0.2rem; }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .hero-four { grid-template-columns: 1fr 1fr; }
+      .hf:nth-child(2) { border-right: none; }
+      .arg-inner, .energy-inner, .corpus-inner, .pilot-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .erow { grid-template-columns: 110px 1fr 70px; gap: 0.65rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { .efill { transition: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">M<span>.</span>E<span>.</span>M<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#argument">Argument</a></li>
+    <li><a href="#produkter">Produkter</a></li>
+    <li><a href="#korpus">Korpus</a></li>
+    <li><a href="#pilot">Pilot</a></li>
+  </ul>
+  <a href="#pilot" class="nav-cta">Bliv pilotpartner</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <p class="hero-lbl">M.E.M. Theory · Governance-First Architecture · Nakskov, Danmark</p>
+    <h1>Ikke mere AI for AI'ens skyld.<br>Men systemer, mennesker<br>faktisk kan <em>eksistere i</em>.</h1>
+    <p class="hero-deck">
+      Danmark og Europa bør ikke kun konkurrere på at bygge den største AI-model.<br>
+      <strong>Vi bør bygge de bedste strukturer omkring modellerne.</strong><br>
+      Sporbare. Forklarlige. Ansvarlige. Uafhængige. Bygget til at holde.
+    </p>
+    <div class="hero-four">
+      <div class="hf"><span class="hf-lbl">EU AI Act</span><span class="hf-val">Compliant by design</span></div>
+      <div class="hf"><span class="hf-lbl">Energiforbrug</span><span class="hf-val">Watt — ikke megawatt</span></div>
+      <div class="hf"><span class="hf-lbl">Arkitektur</span><span class="hf-val">Kausal · Epistemisk · Lukket loop</span></div>
+      <div class="hf"><span class="hf-lbl">Børnesikkerhed</span><span class="hf-val">Governance før engagement</span></div>
+    </div>
+    <div class="hero-actions">
+      <a href="#pilot" class="btn btn-p">Bliv pilotpartner</a>
+      <a href="#produkter" class="btn btn-g">Se produkterne</a>
+    </div>
+  </div>
+</section>
+
+<!-- ARGUMENT -->
+<section class="argument" id="argument">
+  <div class="wrap">
+    <div class="arg-inner">
+      <div class="arg-left">
+        <span class="eye">Det centrale argument</span>
+        <p class="big">"Hvad sker der, hvis AI ikke kun optimeres for output, men bygges omkring relationer, ansvar, feedback, kontinuitet, sporbarhed og mulighed for menneskelig indgriben?"</p>
+        <p>De fleste AI-systemer bygger capability først og governance bagefter. M.E.M.-produkter bygger governance som fundament og capability ovenpå. Det er ikke en begrænsning — det er designprincippet.</p>
+        <p>Resultatet er systemer der kan forklare enhver beslutning de træffer, køre på hardware der allerede eksisterer, og overholde EU AI Act — ikke fordi compliance er tilføjet, men fordi arkitekturen er kausal fra start.</p>
+        <p>Og fordi systemerne ikke kræver GPU-farme, koster de ikke planeten noget særligt at bruge.</p>
+      </div>
+      <div class="arg-right">
+        <span class="eye">Fire grunde til at det haster</span>
+        <div class="arg-item">
+          <span class="arg-num">01</span>
+          <div class="arg-body">
+            <strong>EU AI Act kræver forklarbarhed</strong>
+            <span>Systemer der træffer beslutninger der påvirker mennesker skal kunne forklare sig. M.E.M.-produkter gør dette ikke som et compliance-lag — det er en naturlig konsekvens af den kausale arkitektur.</span>
+          </div>
+        </div>
+        <div class="arg-item">
+          <span class="arg-num">02</span>
+          <div class="arg-body">
+            <strong>Digital suverænitet kræver egne strukturer</strong>
+            <span>Adgang til store AI-modeller kan lukkes med kort varsel. Europa har brug for governance-lag der er model-uafhængige — strukturer der holder, også når leverandører eller geopolitik ændrer sig.</span>
+          </div>
+        </div>
+        <div class="arg-item">
+          <span class="arg-num">03</span>
+          <div class="arg-body">
+            <strong>Klimakrav til datacentre stiger</strong>
+            <span>At vælge systemer der kører deterministisk på eksisterende hardware er ikke bare billigere — det er en klimabeslutning. Watt, ikke megawatt.</span>
+          </div>
+        </div>
+        <div class="arg-item">
+          <span class="arg-num">04</span>
+          <div class="arg-body">
+            <strong>Børn bruger allerede AI — uden governance</strong>
+            <span>Problemet er ikke længere om børn kommer til at bruge AI. Det er hvilken type AI de møder. Eksisterende systemer kan skabe afhængighed, forstærke isolation og normalisere selvskade.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="produkter">
+  <div class="wrap">
+    <span class="eye">Produktoversigt</span>
+    <h2 class="h2">Seks systemer. Ét fundament.</h2>
+    <p class="sub">Hvert produkt dækker sit domæne. Alle bygget på samme kausale, epistemiske arkitektur.</p>
+    <div class="prod-grid">
+
+      <!-- SafeSpace -->
+      <div class="pcard">
+        <div class="pcard-flag flag-children"></div>
+        <div style="margin-top:0.5rem;">
+          <span class="pcard-status s-pilot">⬡ Pilotfase</span>
+        </div>
+        <span class="pcard-domain">Børn · AI-miljøer · Trivsel</span>
+        <h3>M.E.M.I. SafeSpace</h3>
+        <p class="pcard-tagline">"Governance før engagement."</p>
+        <p>Et relationelt sikkerheds- og støttesystem til børn og unge i AI-miljøer — skoler, fritid, hjem. Systemet scorer ikke børn. Det profilerer ikke børn. Det ser mønstre i det relationelle miljø og hjælper børn og voksne med at nå hinanden <em>tidligere</em>.</p>
+        <p>Læreren ser ikke hvad der er skrevet. Læreren ser at noget er i gang — i tide til at handle. AI'en guider altid mod et menneske hvis noget er galt.</p>
+        <div class="pcard-inv">
+          <span class="inv">transfer_allowed = False</span>
+          <span class="inv">execution_allowed = False</span>
+          <span class="inv">scoring_prohibited = True</span>
+        </div>
+        <a href="#pilot" class="pcard-link">Forespørg om pilotadgang</a>
+      </div>
+
+      <!-- ETOS -->
+      <div class="pcard">
+        <div class="pcard-flag flag-gov"></div>
+        <div style="margin-top:0.5rem;">
+          <span class="pcard-status s-ready">✓ Klar</span>
+        </div>
+        <span class="pcard-domain">Governance · EU AI Act · Offentlig sektor</span>
+        <h3>ETOS</h3>
+        <p class="pcard-tagline">"ETOS træffer ikke beslutninger — det gør dem synlige."</p>
+        <p>Etisk Tilsyns- og Overvågningssystem. Governance-native beslutningsplatform med tre-lags arkitektur der identificerer normative spændinger. Dækker EU AI Act artikel 9, 12, 13, 14 og 17. 22/23 audit-checks bestået i uafhængig validering.</p>
+        <p>Til kommuner, institutioner og organisationer der skal kunne forklare hver afgørelse de træffer.</p>
+        <div class="pcard-inv">
+          <span class="inv">Art. 9 Risk Mgmt</span>
+          <span class="inv">Art. 13 Transparency</span>
+          <span class="inv">Art. 14 Human Oversight</span>
+        </div>
+        <a href="#pilot" class="pcard-link">Forespørg om pilot</a>
+      </div>
+
+      <!-- LRE -->
+      <div class="pcard">
+        <div class="pcard-flag flag-citizen"></div>
+        <div style="margin-top:0.5rem;">
+          <span class="pcard-status s-ready">✓ Klar</span>
+        </div>
+        <span class="pcard-domain">Jura · Borgerrettigheder · Forvaltning</span>
+        <h3>LRE — Legal Recoverability Engine</h3>
+        <p class="pcard-tagline">"Borgeren som juridisk aktør — ikke kun juridisk objekt."</p>
+        <p>Kortlægger juridiske genopretningsstier langs kæden: Hændelse → Brud → Bevis → Genoprettelsesvej → Dokument. Fire domæner: forvaltningsret, familieret, lejeret, databeskyttelse. 11 genoprettelsesveje. Genererer faktiske breve og anmodninger.</p>
+        <p>Kører offline. Ingen internetforbindelse krævet under drift.</p>
+        <div class="pcard-inv">
+          <span class="inv">4 domæner</span>
+          <span class="inv">11 genoprettelsesveje</span>
+          <span class="inv">offline-first</span>
+        </div>
+        <a href="#pilot" class="pcard-link">Forespørg om pilot</a>
+      </div>
+
+      <!-- MEMI.www -->
+      <div class="pcard">
+        <div class="pcard-flag flag-citizen"></div>
+        <div style="margin-top:0.5rem;">
+          <span class="pcard-status s-pilot">⬡ Pilotfase</span>
+        </div>
+        <span class="pcard-domain">Digital identitet · GDPR · Borgerrettigheder</span>
+        <h3>M.E.M.I.www — Borgerportal</h3>
+        <p class="pcard-tagline">"Digital selvforsvars- og selvindsigtsarkitektur."</p>
+        <p>Giver borgeren et personligt relationskort over egne digitale spor og omsætter fundene til dokumenterbare rettighedshandlinger. Sletning, rettelse, klage til Datatilsynet, beviskæde. Systemet søger ikke efter "sandheden om personen" — det søger efter relationelle spor.</p>
+        <p>Borgeren ejer data. Systemet holder det på borgerens vegne.</p>
+        <div class="pcard-inv">
+          <span class="inv">GDPR Art. 15-17</span>
+          <span class="inv">append-only log</span>
+          <span class="inv">borgerstyret samtykke</span>
+        </div>
+        <a href="#pilot" class="pcard-link">Forespørg om pilotadgang</a>
+      </div>
+
+      <!-- APEX/GAIA -->
+      <div class="pcard">
+        <div class="pcard-flag flag-security"></div>
+        <div style="margin-top:0.5rem;">
+          <span class="pcard-status s-ready">✓ Klar</span>
+        </div>
+        <span class="pcard-domain">Cybersikkerhed · Kritisk infrastruktur · Forsvar</span>
+        <h3>APEX / GAIA</h3>
+        <p class="pcard-tagline">"Er denne adfærd forenelig med miljøets forventede relationer?"</p>
+        <p>Governance-Native Adaptive Immune Architecture. Spørger ikke "Er dette en kendt trussel?" men "Er denne adfærd forenelig med miljøets forventede relationer?" Deler immunviden mellem noder uden at dele data. Vaccination-pakker, ikke rå alarmer.</p>
+        <p>Hard invariants: HackBack = False. Destructive = False. HumanApproval = Required.</p>
+        <div class="pcard-inv">
+          <span class="inv">HackBack = False</span>
+          <span class="inv">Destructive = False</span>
+          <span class="inv">HumanApproval = Required</span>
+        </div>
+        <a href="#pilot" class="pcard-link">Forespørg om pilot</a>
+      </div>
+
+      <!-- MEMI Core -->
+      <div class="pcard">
+        <div class="pcard-flag flag-core"></div>
+        <div style="margin-top:0.5rem;">
+          <span class="pcard-status s-arch">◈ Arkitektur</span>
+        </div>
+        <span class="pcard-domain">Runtime · Governance-kerne · AGI-sikkerhed</span>
+        <h3>M.E.M.I. Runtime Core</h3>
+        <p class="pcard-tagline">"Governance som fundament. Capability ovenpå."</p>
+        <p>Den underliggende runtime-arkitektur alle produkter bygger på. Persistent governance over 100.000+ iterationer, 14+ timers drift: ingen governance-drift, ingen runaway escalation, ingen identitetsdrift, ingen spontane mål.</p>
+        <p>Ikke en chatbot. En governance-native kognitiv arkitektur hvor restraint er arkitektonisk, ikke situationel.</p>
+        <div class="pcard-inv">
+          <span class="inv">100k+ iterationer</span>
+          <span class="inv">0 governance-fejl</span>
+          <span class="inv">execution_allowed = False</span>
+        </div>
+        <a href="#pilot" class="pcard-link">Forespørg om adgang</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ENERGY -->
+<section class="energy">
+  <div class="wrap">
+    <div class="energy-inner">
+      <div>
+        <span class="eye">Energiforbrug · Relativ sammenligning</span>
+        <h2 class="h2">Det er ikke en begrænsning.<br>Det er designprincippet.</h2>
+        <p>M.E.M.-produkter er kausal ræsonnering — eksplicitte lag, deterministisk logik, ingen vægte, ingen træning, ingen GPU-farm. De kører på en laptop. De bruger watt, ikke megawatt.</p>
+        <p>Det er den samme grund til at de er forklarlige og til at de er billige at drive. Arkitekturen er epistemisk og biologisk inspireret — lukket loop, minimal ressource, maksimal sporbarhed.</p>
+        <p class="energy-note">M.E.M.-produkter kører på det I allerede har. Det er ikke fordi ambitionerne er små — det er fordi arkitekturen er designet til minimal ressourcebrug fra start.</p>
+      </div>
+      <div>
+        <div class="ebars">
+          <div class="erow">
+            <span class="elbl">M.E.M. (lokal laptop)</span>
+            <div class="etrack"><div class="efill mem" data-w="2"></div></div>
+            <span class="eval">~10 W</span>
+          </div>
+          <div class="erow">
+            <span class="elbl">LLM én forespørgsel</span>
+            <div class="etrack"><div class="efill mid" data-w="35"></div></div>
+            <span class="eval">~0,001 kWh</span>
+          </div>
+          <div class="erow">
+            <span class="elbl">LLM daglig drift</span>
+            <div class="etrack"><div class="efill big" data-w="90"></div></div>
+            <span class="eval">megawatt-skala</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORPUS -->
+<section class="corpus" id="korpus">
+  <div class="wrap">
+    <div class="corpus-inner">
+      <div class="corpus-text">
+        <span class="eye">Det konstitutionelle korpus</span>
+        <h2 class="h2">Konstitutionen<br>kommer før koden.</h2>
+        <p>De fleste AI-systemer definerer grænser efterfølgende — som compliance-lag tilføjet ovenpå eksisterende kapabilitet. M.E.M.-korpuset definerer grænser <em>før</em> systemerne bygges.</p>
+        <p>Det er ikke etiske principper. Det er konstitutionel lovgivning for systemerne — med artikel, paragraf og revisionsprotokol. En funktion der konflikter med en artikel afvises. Konstitutionen står.</p>
+        <p>Offentligt arkiveret og peer-reviewbart. Enhver kan verificere at systemerne gør hvad de siger.</p>
+        <div class="doi-box">
+          <span class="doi-lbl">Zenodo DOI — Offentligt arkiveret</span>
+          <span class="doi-val">10.5281/zenodo.20728588</span>
+        </div>
+        <div class="doi-box" style="margin-top:0.75rem;">
+          <span class="doi-lbl">CDP — Common ancestor</span>
+          <span class="doi-val">10.5281/zenodo.18910676</span>
+        </div>
+      </div>
+      <div>
+        <span class="eye" style="margin-bottom:1rem;">Korpusets dokumenter</span>
+        <div class="corpus-docs">
+          <div class="cdoc">
+            <div>
+              <span class="cdoc-name">CDP — Constitutional Decision Protocol</span>
+              <span class="cdoc-desc">Fælles stamfader for alle dokumenter. Legitimitet kommer fra proces, ikke person.</span>
+            </div>
+            <span class="cdoc-type type-const">Forfatning</span>
+          </div>
+          <div class="cdoc">
+            <div>
+              <span class="cdoc-name">Core Axioms v1.0</span>
+              <span class="cdoc-desc">7 aksiomer. Domæne-uafhængige. Relation · Spænding · Recoverability.</span>
+            </div>
+            <span class="cdoc-type type-axiom">Teori</span>
+          </div>
+          <div class="cdoc">
+            <div>
+              <span class="cdoc-name">M.E.M.I.www Constitutional Architecture v1.0</span>
+              <span class="cdoc-desc">Borgeren ejer sine digitale spor. Systemet ejer dem ikke.</span>
+            </div>
+            <span class="cdoc-type type-const">Forfatning</span>
+          </div>
+          <div class="cdoc">
+            <div>
+              <span class="cdoc-name">M.E.M.I. SafeSpace Constitutional Architecture v1.0</span>
+              <span class="cdoc-desc">Barnet er ikke et dataobjekt. Barnet er ikke et risikosignal.</span>
+            </div>
+            <span class="cdoc-type type-const">Forfatning</span>
+          </div>
+          <div class="cdoc">
+            <div>
+              <span class="cdoc-name">Governance & Constitutional Controller v1.0</span>
+              <span class="cdoc-desc">Tre adskilte roller. Ingen enkelt part kan ændre konstitutionen alene.</span>
+            </div>
+            <span class="cdoc-type type-gov">Governance</span>
+          </div>
+          <div class="cdoc">
+            <div>
+              <span class="cdoc-name">Corpus Overview — Document Relations v1.0</span>
+              <span class="cdoc-desc">Kortet over korpuset. Læs dette først.</span>
+            </div>
+            <span class="cdoc-type type-struct">Struktur</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILOT -->
+<section class="pilot" id="pilot">
+  <div class="wrap">
+    <div class="pilot-inner">
+      <div>
+        <span class="eye">Pilotprogram</span>
+        <h2 class="h2">Vær med fra begyndelsen.</h2>
+        <p style="color:var(--muted);line-height:1.8;font-size:0.9rem;margin-bottom:0.75rem;">Et pilotsamarbejde er ikke et eksperiment — det er en kontrolleret implementering med fuld dokumentation, og din organisation som medforfatter til processen.</p>
+        <p style="color:var(--muted);line-height:1.8;font-size:0.9rem;">Antallet af pladser er begrænset. Ikke som salgsretorik — men fordi pilotsamarbejder kræver reel opmærksomhed fra begge sider.</p>
+        <ul class="perks">
+          <li>Direkte adgang til arkitekten bag systemet</li>
+          <li>Fuldt dokumenteret implementering med audit-trail</li>
+          <li>EU AI Act compliance-dokumentation inkluderet</li>
+          <li>Prioritet ved den kommercielle lancering</li>
+          <li>Bidrag til produktets videre udvikling</li>
+          <li>Systemet kører på det hardware I allerede har</li>
+        </ul>
+      </div>
+      <div>
+        <form class="form" id="pilotForm">
+          <div class="form-row">
+            <div class="field"><label>Navn</label><input type="text" placeholder="Dit navn" /></div>
+            <div class="field"><label>Organisation</label><input type="text" placeholder="Kommune / virksomhed / institution" /></div>
+          </div>
+          <div class="field"><label>E-mail</label><input type="email" placeholder="din@email.dk" /></div>
+          <div class="field">
+            <label>Primær interesse</label>
+            <select>
+              <option value="" disabled selected>Vælg produkt eller område</option>
+              <option>M.E.M.I. SafeSpace — børn og AI-miljøer</option>
+              <option>ETOS — governance og EU AI Act</option>
+              <option>LRE — juridisk genopretning for borgere</option>
+              <option>M.E.M.I.www — digital selvforsvar og borgerrettigheder</option>
+              <option>APEX/GAIA — cybersikkerhed og kritisk infrastruktur</option>
+              <option>M.E.M.I. Runtime Core — arkitekturadgang</option>
+              <option>Digital suverænitet / governance-infrastruktur generelt</option>
+              <option>Ved ikke endnu — vil gerne høre mere</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Kontekst <span style="font-weight:300;text-transform:none;letter-spacing:0">(valgfrit)</span></label>
+            <textarea placeholder="Hvad er udfordringen? Hvad har I forsøgt hidtil?"></textarea>
+          </div>
+          <p class="form-note">Ingen automatiserede svar. Ingen nyhedsbrev. Du hører direkte fra mig — Maria.</p>
+          <button type="submit" class="btn btn-p">Send forespørgsel</button>
+          <div id="form-ok">Tak. Du hører fra mig inden for et par dage. — Maria Edlenborg Mortensen</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <span class="foot-logo">M<span>.</span>E<span>.</span>M<span>.</span> — Maria Edlenborg Mortensen</span>
+      <div class="foot-links">
+        <a href="https://zenodo.org/records/20728588" target="_blank" rel="noopener">Zenodo Korpus</a>
+        <a href="https://zenodo.org/records/18910676" target="_blank" rel="noopener">CDP DOI</a>
+        <a href="https://mem-teori.github.io/etos-site/" target="_blank" rel="noopener">ETOS-site</a>
+        <a href="http://ai-constitution.now" target="_blank" rel="noopener">AI Constitution</a>
+        <a href="mailto:m.e.m.teori@gmail.com">Kontakt</a>
+      </div>
+      <p class="foot-copy">© 2026 Maria Edlenborg Mortensen · M.E.M. Theory · Nakskov, Danmark · DOI 10.5281/zenodo.20728588</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Energy bars
+  const fills = document.querySelectorAll('.efill[data-w]');
+  const io = new IntersectionObserver(e => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.style.width = x.target.dataset.w + '%'; io.unobserve(x.target); } });
+  }, { threshold: 0.4 });
+  fills.forEach(f => io.observe(f));
+
+  // Form
+  document.getElementById('pilotForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = 'Sender…'; btn.disabled = true;
+    setTimeout(() => {
+      document.getElementById('form-ok').style.display = 'block';
+      btn.style.display = 'none';
+    }, 700);
+  });
+</script>
+</body>
+</html>
