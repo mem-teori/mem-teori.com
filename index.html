@@ -61,6 +61,20 @@
     .hf-val { font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--accent); }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
+
+    /* UNIVERSE MAP */
+    .universe-map { padding: 4.75rem 0; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%); }
+    .universe-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 2.25rem; }
+    .universe-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .ucard { background: var(--bg); padding: 2rem; min-height: 240px; display: flex; flex-direction: column; gap: 0.8rem; text-decoration: none; color: inherit; position: relative; overflow: hidden; transition: background 0.15s, transform 0.15s; }
+    .ucard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--blue)); }
+    .ucard:hover { background: var(--bg3); transform: translateY(-1px); }
+    .ucard small { font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); }
+    .ucard h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--white); line-height: 1.25; }
+    .ucard p { color: var(--muted); font-size: 0.88rem; line-height: 1.75; flex-grow: 1; }
+    .ucard strong { font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--accent); }
+    .universe-note { margin-top: 1rem; color: var(--muted); font-size: 0.8rem; line-height: 1.7; }
+
     /* ARGUMENT */
     .argument { padding: 5.5rem 0; border-bottom: 1px solid var(--line); background: var(--bg2); }
     .arg-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
@@ -161,6 +175,8 @@
       .nav-links { display: none; }
       .hero-four { grid-template-columns: 1fr 1fr; }
       .hf:nth-child(2) { border-right: none; }
+      .universe-head { display: block; }
+      .universe-grid { grid-template-columns: 1fr; }
       .arg-inner, .energy-inner, .corpus-inner, .pilot-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .form-row { grid-template-columns: 1fr; }
       .erow { grid-template-columns: 110px 1fr 70px; gap: 0.65rem; }
@@ -175,7 +191,7 @@
   <ul class="nav-links">
     <li><a href="#argument">Argument</a></li>
     <li><a href="#produkter">Produkter</a></li>
-    <li><a href="https://mem-teori.github.io/etos-site/" target="_blank" rel="noopener">Universkort</a></li>
+    <li><a href="#universkort">Universkort</a></li>
     <li><a href="#korpus">Korpus</a></li>
     <li><a href="#pilot">Pilot</a></li>
     <li><a href="/en" class="nav-lang">🇬🇧 EN</a></li>
@@ -203,8 +219,40 @@
     <div class="hero-actions">
       <a href="#pilot" class="btn btn-p">Bliv pilotpartner</a>
       <a href="#produkter" class="btn btn-g">Se produkterne</a>
-      <a href="https://mem-teori.github.io/etos-site/" target="_blank" rel="noopener" class="btn btn-g">Se M.E.M. universkort</a>
+      <a href="#universkort" class="btn btn-g">Se universkort</a>
     </div>
+  </div>
+</section>
+
+
+<!-- UNIVERSKORT -->
+<section class="universe-map" id="universkort">
+  <div class="wrap">
+    <div class="universe-head">
+      <div>
+        <span class="eye">Universkort</span>
+        <h2 class="h2">Tre sider. Én sammenhæng.</h2>
+        <p class="sub">Denne side viser produkt- og pilotsiden af M.E.M. Herfra kan du åbne både det samlede M.E.M./ETOS-univers og AI Constitution-sporet.</p>
+      </div>
+    </div>
+
+    <div class="universe-grid">
+      <a class="ucard" href="https://mem-teori.github.io/etos-site/" target="_blank" rel="noopener">
+        <small>Hovedsite · Dansk</small>
+        <h3>M.E.M. / ETOS Universkort</h3>
+        <p>Samlet kort over M.E.M., ETOS, Børneuniverset, læring, forskning, produkter, forløb og åbent laboratorium.</p>
+        <strong>Åbn universkortet →</strong>
+      </a>
+
+      <a class="ucard" href="https://ai-constitution.now/" target="_blank" rel="noopener">
+        <small>Governance · Dansk / English</small>
+        <h3>AI Constitution</h3>
+        <p>Offentlig governance-side om ansvar, demokrati, retssikkerhed, digital identitet og konstitutionel AI-arkitektur.</p>
+        <strong>Åbn AI Constitution →</strong>
+      </a>
+    </div>
+
+    <p class="universe-note">Links åbner i nye faner, så produktforsiden bliver stående som udgangspunkt.</p>
   </div>
 </section>
 
@@ -543,7 +591,7 @@
       <div class="foot-links">
         <a href="https://zenodo.org/records/20728588" target="_blank" rel="noopener">Zenodo Korpus</a>
         <a href="https://zenodo.org/records/18910676" target="_blank" rel="noopener">CDP DOI</a>
-        <a href="https://mem-teori.github.io/etos-site/" target="_blank" rel="noopener">M.E.M. Universkort</a>
+        <a href="https://mem-teori.github.io/etos-site/" target="_blank" rel="noopener">M.E.M. / ETOS Universkort</a>
         <a href="https://ai-constitution.now/" target="_blank" rel="noopener">AI Constitution</a>
         <a href="mailto:m.e.m.teori@gmail.com">Kontakt</a>
       </div>
