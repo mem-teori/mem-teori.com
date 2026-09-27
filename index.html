@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>M.E.M. Theory — Governance-First AI</title>
   <meta name="description" content="Danmark og Europa bør ikke kun bygge den største AI-model. Vi bør bygge de bedste strukturer omkring modellerne." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="M.E.M. Theory — Governance-First AI" />
+  <meta property="og:description" content="Danmark og Europa bør ikke kun bygge den største AI-model. Vi bør bygge de bedste strukturer omkring modellerne." />
+  <meta property="og:url" content="https://mem-teori.com/" />
+  <meta property="og:locale" content="da_DK" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
@@ -213,7 +218,7 @@
     <div class="hero-four">
       <div class="hf"><span class="hf-lbl">EU AI Act</span><span class="hf-val">Compliant by design</span></div>
       <div class="hf"><span class="hf-lbl">Energiforbrug</span><span class="hf-val">Watt — ikke megawatt</span></div>
-      <div class="hf"><span class="hf-lbl">Arkitektur</span><span class="hf-val">Kausal · Epistemisk · Lukket loop</span></div>
+      <div class="hf"><span class="hf-lbl">Arkitektur</span><span class="hf-val">Kausal · Epistemisk · Delvist lukket loop</span></div>
       <div class="hf"><span class="hf-lbl">Børnesikkerhed</span><span class="hf-val">Governance før engagement</span></div>
     </div>
     <div class="hero-actions">
@@ -436,7 +441,7 @@
         <span class="eye">Energiforbrug · Relativ sammenligning</span>
         <h2 class="h2">Det er ikke en begrænsning.<br>Det er designprincippet.</h2>
         <p>M.E.M.-produkter er kausal ræsonnering — eksplicitte lag, deterministisk logik, ingen vægte, ingen træning, ingen GPU-farm. De kører på en laptop. De bruger watt, ikke megawatt.</p>
-        <p>Det er den samme grund til at de er forklarlige og til at de er billige at drive. Arkitekturen er epistemisk og biologisk inspireret — lukket loop, minimal ressource, maksimal sporbarhed.</p>
+        <p>Det er den samme grund til at de er forklarlige og til at de er billige at drive. Arkitekturen er epistemisk og biologisk inspireret — delvist lukket loop, minimal ressource, maksimal sporbarhed.</p>
         <p class="energy-note">M.E.M.-produkter kører på det I allerede har. Det er ikke fordi ambitionerne er små — det er fordi arkitekturen er designet til minimal ressourcebrug fra start.</p>
       </div>
       <div>
@@ -551,15 +556,15 @@
         </ul>
       </div>
       <div>
-        <form class="form" id="pilotForm">
+        <form class="form" id="pilotForm" action="mailto:M.E.M.Teori@gmail.com" method="post" enctype="text/plain">
           <div class="form-row">
-            <div class="field"><label>Navn</label><input type="text" placeholder="Dit navn" /></div>
-            <div class="field"><label>Organisation</label><input type="text" placeholder="Kommune / virksomhed / institution" /></div>
+            <div class="field"><label>Navn</label><input type="text" name="navn" placeholder="Dit navn" /></div>
+            <div class="field"><label>Organisation</label><input type="text" name="organisation" placeholder="Kommune / virksomhed / institution" /></div>
           </div>
-          <div class="field"><label>E-mail</label><input type="email" placeholder="din@email.dk" /></div>
+          <div class="field"><label>E-mail</label><input type="email" name="email" placeholder="din@email.dk" /></div>
           <div class="field">
             <label>Primær interesse</label>
-            <select>
+            <select name="interesse">
               <option value="" disabled selected>Vælg produkt eller område</option>
               <option>M.E.M.I. SafeSpace — børn og AI-miljøer</option>
               <option>ETOS — governance og EU AI Act</option>
@@ -573,11 +578,11 @@
           </div>
           <div class="field">
             <label>Kontekst <span style="font-weight:300;text-transform:none;letter-spacing:0">(valgfrit)</span></label>
-            <textarea placeholder="Hvad er udfordringen? Hvad har I forsøgt hidtil?"></textarea>
+            <textarea name="kontekst" placeholder="Hvad er udfordringen? Hvad har I forsøgt hidtil?"></textarea>
           </div>
-          <p class="form-note">Ingen automatiserede svar. Ingen nyhedsbrev. Du hører direkte fra mig — Maria.</p>
+          <p class="form-note">Ingen automatiserede svar. Ingen nyhedsbrev. Du hører direkte fra mig — Maria. Knappen åbner dit eget mailprogram med forespørgslen udfyldt.</p>
           <button type="submit" class="btn btn-p">Send forespørgsel</button>
-          <div id="form-ok">Tak. Du hører fra mig inden for et par dage. — Maria Edlenborg Mortensen</div>
+          <div id="form-ok">Dit mailprogram åbner nu med forespørgslen udfyldt — tryk send dér. Åbner det ikke, så skriv direkte til <a href="mailto:M.E.M.Teori@gmail.com">M.E.M.Teori@gmail.com</a>.</div>
         </form>
       </div>
     </div>
@@ -593,6 +598,8 @@
         <a href="https://zenodo.org/records/18910676" target="_blank" rel="noopener">CDP DOI</a>
         <a href="https://mem-teori.github.io/etos-site/" target="_blank" rel="noopener">M.E.M. / ETOS Universkort</a>
         <a href="https://ai-constitution.now/da.html" target="_blank" rel="noopener">AI Constitution</a>
+        <a href="https://www.linkedin.com/in/maria-edlenborg/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://mariaedlenborgmortensen.substack.com" target="_blank" rel="noopener">Substack</a>
         <a href="mailto:m.e.m.teori@gmail.com">Kontakt</a>
       </div>
       <p class="foot-copy">© 2026 Maria Edlenborg Mortensen · M.E.M. Theory · Nakskov, Danmark · DOI 10.5281/zenodo.20728588</p>
@@ -610,13 +617,14 @@
 
   // Form
   document.getElementById('pilotForm').addEventListener('submit', e => {
+    // Ingen server og ingen tredjepart: åbner brugerens eget mailprogram
     e.preventDefault();
-    const btn = e.target.querySelector('button');
-    btn.textContent = 'Sender…'; btn.disabled = true;
-    setTimeout(() => {
-      document.getElementById('form-ok').style.display = 'block';
-      btn.style.display = 'none';
-    }, 700);
+    const f = e.target;
+    const v = n => ((f.elements[n] && f.elements[n].value) || '').trim();
+    const body = 'Navn: ' + v('navn') + '\nOrganisation: ' + v('organisation') + '\nE-mail: ' + v('email') + '\nPrimær interesse: ' + v('interesse') + '\n\nKontekst:\n' + v('kontekst');
+    const subject = 'Pilotforespørgsel — ' + (v('organisation') || v('navn'));
+    window.location.href = 'mailto:M.E.M.Teori@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    document.getElementById('form-ok').style.display = 'block';
   });
 </script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "cfc6790c9797494e8902bac21f163525"}'></script><!-- End Cloudflare Web Analytics -->

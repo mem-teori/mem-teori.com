@@ -213,7 +213,7 @@
     <div class="hero-four">
       <div class="hf"><span class="hf-lbl">EU AI Act</span><span class="hf-val">Compliant by design</span></div>
       <div class="hf"><span class="hf-lbl">Energy use</span><span class="hf-val">Watts — not megawatts</span></div>
-      <div class="hf"><span class="hf-lbl">Architecture</span><span class="hf-val">Causal · Epistemic · Closed loop</span></div>
+      <div class="hf"><span class="hf-lbl">Architecture</span><span class="hf-val">Causal · Epistemic · Partially closed loop</span></div>
       <div class="hf"><span class="hf-lbl">Child safety</span><span class="hf-val">Governance before engagement</span></div>
     </div>
     <div class="hero-actions">
@@ -436,7 +436,7 @@
         <span class="eye">Energy consumption · Relative comparison</span>
         <h2 class="h2">Not a limitation.<br>The design principle.</h2>
         <p>M.E.M. products are causal reasoning — explicit layers, deterministic logic, no weights, no training, no GPU farm. They run on a laptop. They use watts, not megawatts.</p>
-        <p>That is the same reason they are explainable and inexpensive to operate. The architecture is epistemically and biologically inspired — closed loop, minimal resource use, maximum traceability.</p>
+        <p>That is the same reason they are explainable and inexpensive to operate. The architecture is epistemically and biologically inspired — partially closed loop, minimal resource use, maximum traceability.</p>
         <p class="energy-note">M.E.M. products run on hardware you already have. Not because the ambitions are small — but because the architecture is designed for minimal resource use from the start.</p>
       </div>
       <div>
@@ -551,15 +551,15 @@
         </ul>
       </div>
       <div>
-        <form class="form" id="pilotForm">
+        <form class="form" id="pilotForm" action="mailto:M.E.M.Teori@gmail.com" method="post" enctype="text/plain">
           <div class="form-row">
-            <div class="field"><label>Name</label><input type="text" placeholder="Your name" /></div>
-            <div class="field"><label>Organisation</label><input type="text" placeholder="Municipality / company / institution" /></div>
+            <div class="field"><label>Name</label><input type="text" name="navn" placeholder="Your name" /></div>
+            <div class="field"><label>Organisation</label><input type="text" name="organisation" placeholder="Municipality / company / institution" /></div>
           </div>
-          <div class="field"><label>Email</label><input type="email" placeholder="you@example.com" /></div>
+          <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@example.com" /></div>
           <div class="field">
             <label>Primary interest</label>
-            <select>
+            <select name="interesse">
               <option value="" disabled selected>Select product or area</option>
               <option>M.E.M.I. SafeSpace — children and AI environments</option>
               <option>ETOS — governance and EU AI Act</option>
@@ -573,11 +573,11 @@
           </div>
           <div class="field">
             <label>Context <span style="font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label>
-            <textarea placeholder="What is the challenge? What have you tried so far?"></textarea>
+            <textarea name="kontekst" placeholder="What is the challenge? What have you tried so far?"></textarea>
           </div>
-          <p class="form-note">No automated replies. No newsletter. You will hear directly from me — Maria.</p>
+          <p class="form-note">No automated replies. No newsletter. You will hear directly from me — Maria. The button opens your own email app with the enquiry filled in.</p>
           <button type="submit" class="btn btn-p">Send enquiry</button>
-          <div id="form-ok">Thank you. You will hear from me within a few days. — Maria Edlenborg Mortensen</div>
+          <div id="form-ok">Your email app is opening with the enquiry filled in — press send there. If it does not open, write directly to <a href="mailto:M.E.M.Teori@gmail.com">M.E.M.Teori@gmail.com</a>.</div>
         </form>
       </div>
     </div>
@@ -593,6 +593,8 @@
         <a href="https://zenodo.org/records/18910676" target="_blank" rel="noopener">CDP DOI</a>
         <a href="https://mem-teori.github.io/etos-site/index-en.html" target="_blank" rel="noopener">M.E.M. / ETOS Ecosystem Map</a>
         <a href="https://ai-constitution.now/" target="_blank" rel="noopener">AI Constitution</a>
+        <a href="https://www.linkedin.com/in/maria-edlenborg/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://mariaedlenborgmortensen.substack.com" target="_blank" rel="noopener">Substack</a>
         <a href="mailto:m.e.m.teori@gmail.com">Contact</a>
       </div>
       <p class="foot-copy">© 2026 Maria Edlenborg Mortensen · M.E.M. Theory · Nakskov, Denmark · DOI 10.5281/zenodo.20728588</p>
@@ -610,13 +612,14 @@
 
   // Form
   document.getElementById('pilotForm').addEventListener('submit', e => {
+    // Ingen server og ingen tredjepart: åbner brugerens eget mailprogram
     e.preventDefault();
-    const btn = e.target.querySelector('button');
-    btn.textContent = 'Sending…'; btn.disabled = true;
-    setTimeout(() => {
-      document.getElementById('form-ok').style.display = 'block';
-      btn.style.display = 'none';
-    }, 700);
+    const f = e.target;
+    const v = n => ((f.elements[n] && f.elements[n].value) || '').trim();
+    const body = 'Name: ' + v('navn') + '\nOrganisation: ' + v('organisation') + '\nEmail: ' + v('email') + '\nPrimary interest: ' + v('interesse') + '\n\nContext:\n' + v('kontekst');
+    const subject = 'Pilot enquiry — ' + (v('organisation') || v('navn'));
+    window.location.href = 'mailto:M.E.M.Teori@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    document.getElementById('form-ok').style.display = 'block';
   });
 </script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "cfc6790c9797494e8902bac21f163525"}'></script><!-- End Cloudflare Web Analytics -->
